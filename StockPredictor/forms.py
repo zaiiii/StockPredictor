@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.admin.widgets import AdminDateWidget
 from django.contrib.auth.forms import UserCreationForm
 from django.core.validators import URLValidator
+from django.contrib.auth.models import User
 
 class NextDayPredictionForm(forms.ModelForm):
     stock = (
@@ -41,3 +42,15 @@ class GraphPredictionForm(forms.Form):
                                     'class':'datepicker'
                                 }))
 
+
+class RegistrationForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = [
+            'username',
+            'first_name',
+            'last_name',
+            'email',
+            'password1',
+            'password2'
+            ]

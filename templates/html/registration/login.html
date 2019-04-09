@@ -1,0 +1,26 @@
+{#{% extends 'index.html' %}#}
+
+{% load static %}
+{% load staticfiles %}
+
+<link href="{% static 'dist/css/pages/refstyle.css' %}" rel="stylesheet">
+
+{% block actual_content %}
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <h2 class="active"> Sign In </h2>
+    <!-- Login Form -->
+    <form method="POST" action = ''>
+        {% csrf_token %}
+        <input type="hidden"  autofocus>
+        <input type="text" id="username" class="fadeIn second" name="username" placeholder="Username">
+        <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password">
+        <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+      <p>New Here?</p><b>
+      <p><a href="{% url 'signup' %}">SIGN UP</a></p>
+  </div>
+
+</div>
+{% endblock %}
